@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlineBridge Digital | Professional Web Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB', // Royal Blue
+                        secondary: '#1E293B', // Slate 800
+                        accent: '#F8FAFC', // Slate 50
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="navigateToHome()">
+                    <i data-lucide="globe" class="h-6 w-6 text-primary"></i>
+                    <span class="font-bold text-xl tracking-tight text-secondary">OnlineBridge</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="nav-link text-sm font-medium text-slate-600 hover:text-primary transition-colors">Services</a>
+                    <a href="#process" class="nav-link text-sm font-medium text-slate-600 hover:text-primary transition-colors">Process</a>
+                    <a href="#why-us" class="nav-link text-sm font-medium text-slate-600 hover:text-primary transition-colors">Why Us</a>
+                    <a href="#contact" class="nav-link px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#services" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-primary hover:bg-slate-50">Services</a>
+                <a href="#process" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-primary hover:bg-slate-50">Process</a>
+                <a href="#why-us" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-primary hover:bg-slate-50">Why Us</a>
+                <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-primary font-semibold bg-blue-50">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content View -->
+    <main id="home-view">
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+            <!-- Background blob decoration -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10 animate-fade-in"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-slate-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-primary text-xs font-semibold tracking-wide uppercase mb-6 animate-fade-in-up">
+                    Digital Transformation
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-secondary mb-6 leading-tight max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.1s;">
+                    Bridging Your Business to the <br class="hidden md:block" /> <span class="text-gradient">Digital World</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    We help small businesses establish a powerful online presence with custom, minimalist, and effective websites.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#contact" class="nav-link px-8 py-3.5 rounded-full bg-primary text-white font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Start Your Project
+                    </a>
+                    <a href="#services" class="nav-link px-8 py-3.5 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-accent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Our Expertise</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Everything you need to get your business online and growing.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal border border-slate-100 group">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <i data-lucide="layout" class="w-6 h-6 text-primary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Custom Web Design</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Tailor-made designs that reflect your brand identity. We focus on aesthetics and user experience to keep your visitors engaged.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal border border-slate-100 group" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <i data-lucide="smartphone" class="w-6 h-6 text-primary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">Mobile Responsive</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Your website will look perfect on any device. We ensure seamless functionality across desktops, tablets, and mobile phones.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 reveal border border-slate-100 group" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <i data-lucide="search" class="w-6 h-6 text-primary group-hover:text-white transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-3">SEO Optimized</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Built with best practices to help your business rank higher on search engines, making it easier for customers to find you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Simple Steps to Your New Website</h2>
+                        <p class="text-slate-600 mb-8 text-lg">We simplify the technical stuff so you can focus on your business. Here is how we work together.</p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary mb-1">Consultation</h4>
+                                    <p class="text-slate-600">We discuss your goals, target audience, and design preferences via email.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary mb-1">Development</h4>
+                                    <p class="text-slate-600">We build your site, keeping you updated with previews to ensure it meets your vision.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-secondary mb-1">Launch</h4>
+                                    <p class="text-slate-600">Once approved, we launch your site to the world and ensure everything runs smoothly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative reveal lg:h-auto h-64 w-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex items-center justify-center">
+                        <!-- Abstract representation of building -->
+                        <div class="absolute inset-0 bg-slate-50"></div>
+                        <div class="relative z-10 w-3/4 p-6 bg-white rounded-lg shadow-xl border border-slate-100">
+                            <div class="h-2 w-full bg-slate-100 rounded mb-4"></div>
+                            <div class="flex gap-4 mb-4">
+                                <div class="h-20 w-1/3 bg-blue-50 rounded"></div>
+                                <div class="w-2/3 space-y-2">
+                                    <div class="h-2 w-full bg-slate-100 rounded"></div>
+                                    <div class="h-2 w-5/6 bg-slate-100 rounded"></div>
+                                    <div class="h-2 w-4/6 bg-slate-100 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="h-8 w-32 bg-primary rounded-md mx-auto opacity-20"></div>
+                        </div>
+                        <!-- Decorative Circle -->
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-2xl opacity-50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us / Stats -->
+        <section id="why-us" class="py-20 bg-secondary text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <h2 class="text-3xl font-bold mb-4">Why Choose OnlineBridge?</h2>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                            We understand small businesses because we focus exclusively on them. No complex jargon, no hidden fees—just effective digital bridges built to help you cross into new markets.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
+                                <span class="text-slate-200">Personalized attention</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
+                                <span class="text-slate-200">Fast turnaround times</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-blue-400"></i>
+                                <span class="text-slate-200">Post-launch support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 reveal">
+                        <div class="text-center">
+                            <i data-lucide="monitor-smartphone" class="w-12 h-12 text-blue-400 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Focused on Quality</h3>
+                            <p class="text-slate-400 text-sm">Every pixel is placed with purpose. We don't just build websites; we build business tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-accent">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">Ready to Go Online?</h2>
+                <p class="text-slate-600 mb-10 text-lg">
+                    Let's discuss your project. Send us an email with your requirements, and we'll get back to you with a plan.
+                </p>
+
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border border-slate-100 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="mail" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-2">Email Us At</h3>
+                    
+                    <!-- Email Display & Copy -->
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-3 mt-6">
+                        <code class="px-4 py-3 bg-slate-50 text-slate-800 rounded-lg border border-slate-200 font-mono text-sm md:text-base break-all" id="email-text">onlinebridgedigital@gmail.com</code>
+                        <button onclick="copyEmail()" class="p-3 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-primary hover:border-primary transition-all group relative" title="Copy to clipboard">
+                            <i data-lucide="copy" class="w-5 h-5"></i>
+                            <span id="copy-tooltip" class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-secondary text-white text-xs py-1 px-2 rounded opacity-0 transition-opacity">Copied!</span>
+                        </button>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="mailto:onlinebridgedigital@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white font-semibold hover:bg-blue-700 transition-all shadow-md w-full sm:w-auto">
+                            Send an Email
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <p class="mt-6 text-sm text-slate-400">We typically reply within 24 hours.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Privacy Policy View (Hidden by default) -->
+    <main id="privacy-view" class="hidden pt-32 pb-20 flex-grow bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <button onclick="navigateToHome()" class="flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    Back to Home
+                </button>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100">
+                <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-2">Privacy Policy</h1>
+                <p class="text-slate-500 mb-8">Last Updated: October 26, 2023</p>
+                
+                <div class="space-y-8 text-slate-600 leading-relaxed">
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">1. Introduction</h2>
+                        <p>Welcome to OnlineBridge Digital. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect, how we use it, and your rights in relation to it.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">2. Information We Collect</h2>
+                        <p>We collect minimal personal information necessary to provide our services. Since our primary contact method is via email, we collect:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Name and Email Address (when you contact us).</li>
+                            <li>Project details and requirements you share with us.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">3. How We Use Your Information</h2>
+                        <p>We use the information we collect solely for business purposes, including:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Responding to your inquiries and consultation requests.</li>
+                            <li>Developing and deploying your website.</li>
+                            <li>Sending administrative information, such as invoices or project updates.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">4. Information Sharing</h2>
+                        <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website or conducting our business, so long as those parties agree to keep this information confidential.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">5. Contact Us</h2>
+                        <p>If you have any questions about this Privacy Policy, please contact us via email at:</p>
+                        <p class="font-semibold text-primary mt-2">onlinebridgedigital@gmail.com</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Terms of Service View (Hidden by default) -->
+    <main id="terms-view" class="hidden pt-32 pb-20 flex-grow bg-slate-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <button onclick="navigateToHome()" class="flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    Back to Home
+                </button>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100">
+                <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-2">Terms of Service</h1>
+                <p class="text-slate-500 mb-8">Last Updated: October 26, 2023</p>
+                
+                <div class="space-y-8 text-slate-600 leading-relaxed">
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">1. Acceptance of Terms</h2>
+                        <p>By accessing and using the services provided by OnlineBridge Digital ("we," "us," or "our"), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">2. Services Provided</h2>
+                        <p>OnlineBridge Digital provides web design and development services for small businesses. Our services include, but are not limited to, website creation, responsiveness optimization, and SEO setup. The specific scope of work for each project will be agreed upon via email consultation.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">3. User Responsibilities</h2>
+                        <p>You agree to provide accurate and complete information necessary for the completion of your project (e.g., text content, images, branding assets). You are responsible for ensuring you have the rights to use any content you provide to us.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">4. Intellectual Property</h2>
+                        <p>Upon full payment, you will own the rights to the final website design and code delivered to you. OnlineBridge Digital retains the right to display the completed work in our portfolio and marketing materials unless otherwise agreed upon in writing.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">5. Limitation of Liability</h2>
+                        <p>OnlineBridge Digital shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, resulting from your use of our services or website.</p>
+                    </section>
+                    
+                     <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">6. Modifications to Terms</h2>
+                        <p>We reserve the right to modify these terms at any time. We will always post the most current version on our website. By continuing to use our services after changes become effective, you agree to be bound by the revised terms.</p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold text-secondary mb-3">7. Contact Information</h2>
+                        <p>For any questions regarding these Terms of Service, please contact us at:</p>
+                        <p class="font-semibold text-primary mt-2">onlinebridgedigital@gmail.com</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="globe" class="h-6 w-6 text-primary"></i>
+                        <span class="font-bold text-xl tracking-tight text-secondary">OnlineBridge</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Helping small businesses navigate the digital landscape with minimal, effective web solutions.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" onclick="navigateToHome(); return false;" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#services" class="nav-link hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#process" class="nav-link hover:text-primary transition-colors">Process</a></li>
+                        <li><a href="#contact" class="nav-link hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-secondary mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#" onclick="showPrivacy(); return false;" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showTerms(); return false;" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm">© 2025 OnlineBridge Digital. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <!-- Social Placeholders -->
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Navigation Functions
+        const homeView = document.getElementById('home-view');
+        const privacyView = document.getElementById('privacy-view');
+        const termsView = document.getElementById('terms-view');
+
+        function navigateToHome() {
+            homeView.classList.remove('hidden');
+            privacyView.classList.add('hidden');
+            termsView.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPrivacy() {
+            homeView.classList.add('hidden');
+            termsView.classList.add('hidden');
+            privacyView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTerms() {
+            homeView.classList.add('hidden');
+            privacyView.classList.add('hidden');
+            termsView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Handle navigation links to ensure we go back to home view first
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                // If we are on privacy or terms page, switch back to home first
+                if (homeView.classList.contains('hidden')) {
+                    homeView.classList.remove('hidden');
+                    privacyView.classList.add('hidden');
+                    termsView.classList.add('hidden');
+                    
+                    // Allow DOM to update before scrolling to section
+                    setTimeout(() => {
+                        const targetId = link.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 10);
+                }
+            });
+        });
+
+        // Copy Email Functionality
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const tooltip = document.getElementById('copy-tooltip');
+                tooltip.style.opacity = '1';
+                setTimeout(() => {
+                    tooltip.style.opacity = '0';
+                }, 2000);
+            });
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
